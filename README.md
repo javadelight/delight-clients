@@ -111,12 +111,11 @@ This project is compatible with the following environments:
 
 ## Further Resources
 
-- [JavaDocs](http://modules.appjangle.com/client-api/latest/apidocs/)
-- [Project Reports](http://modules.appjangle.com/client-api/latest/project-reports.html)
-- [Rendered README](http://documentup.com/mxro/client-api)
-- [ReadTheDocs](http://client-api.rtfd.org/)
+- [JavaDocs](http://modules.appjangle.com/delight-clients/latest/apidocs/)
+- [Project Reports](http://modules.appjangle.com/delight-clients/latest/project-reports.html)
 
-[![Documentation Status](https://readthedocs.org/projects/client-api/badge/?version=latest)](https://readthedocs.org/projects/client-api/?badge=latest)
+
+
  
   
 
