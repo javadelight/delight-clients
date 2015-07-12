@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/javadelight/delight-clients.svg)](https://travis-ci.org/javadelight/delight-clients)
+
 # delight-clients
 
 A good way to start developing any client application in Java. 
