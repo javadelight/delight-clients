@@ -1,6 +1,15 @@
 package de.mxro.client.tests;
 
+import de.mxro.client.BasicClient;
+import de.mxro.client.jre.Clients;
+import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.JUnit;
+import delight.async.properties.PropertyNode;
+import delight.async.properties.PropertyOperation;
+import delight.async.properties.jre.Properties;
+import delight.functional.Success;
+import delight.log.jre.Logs;
+import delight.promise.Promise;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.Matcher;
 import org.junit.Assert;
@@ -12,9 +21,18 @@ import org.junit.internal.ArrayComparisonFailure;
 public class TestCreateAndStop {
   @Test
   public void test() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Logs is undefined for the type TestCreateAndStop"
-      + "\nstring cannot be resolved");
+    BasicClient client = Clients.create();
+    PropertyNode _logs = client.logs();
+    PropertyOperation<String> _string = Logs.string(this, "I was there.");
+    _logs.<String>record(_string);
+    PropertyNode _metrics = client.metrics();
+    PropertyOperation<Long> _increment = Metrics.increment("counter");
+    _metrics.<Long>record(_increment);
+    PropertyNode _state = client.state();
+    PropertyOperation<Object> _set = Properties.set("123", "456");
+    _state.<Object>record(_set);
+    Promise<Success> _stop = client.stop();
+    _stop.get();
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
