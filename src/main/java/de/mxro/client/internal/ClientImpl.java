@@ -101,7 +101,7 @@ public class ClientImpl implements BasicClient {
                     toShutdown.add(logs.stop());
                 }
 
-                AsyncCommon.parallel(toShutdown, new ValueCallback<List<Object>>() {
+                AsyncCommon.parallel(toShutdown, new ValueCallback<List<Success>>() {
 
                     @Override
                     public void onFailure(final Throwable t) {
@@ -109,7 +109,7 @@ public class ClientImpl implements BasicClient {
                     }
 
                     @Override
-                    public void onSuccess(final List<Object> value) {
+                    public void onSuccess(final List<Success> value) {
                         callback.onSuccess(Success.INSTANCE);
                     }
 
