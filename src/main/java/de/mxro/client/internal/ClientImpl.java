@@ -18,12 +18,12 @@ import delight.promise.helper.PromiseFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.mxro.client.BasicClient;
+import de.mxro.client.ClientEnv;
 import de.mxro.metrics.MetricsConfiguration;
 import de.mxro.service.ServiceRegistry;
 import de.mxro.service.Services;
 
-public class ClientImpl implements BasicClient {
+public class ClientImpl implements ClientEnv {
 
     private FactoryCollection factories;
     private ServiceRegistry services;

@@ -10,7 +10,7 @@ import delight.promise.helper.PromiseFactory;
 
 import de.mxro.service.ServiceRegistry;
 
-public interface BasicClient extends PromiseFactory {
+public interface ClientEnv extends PromiseFactory {
 
     public FactoryCollection factories();
 

@@ -1,6 +1,6 @@
 package de.mxro.client.tests;
 
-import de.mxro.client.BasicClient;
+import de.mxro.client.ClientEnv;
 import de.mxro.client.jre.Clients;
 import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.JUnit;
@@ -21,7 +21,7 @@ import org.junit.internal.ArrayComparisonFailure;
 public class TestCreateAndStop {
   @Test
   public void test() {
-    BasicClient client = Clients.create();
+    ClientEnv client = Clients.create();
     PropertyNode _logs = client.logs();
     PropertyOperation<String> _string = Logs.string(this, "I was there.");
     _logs.<String>record(_string);
