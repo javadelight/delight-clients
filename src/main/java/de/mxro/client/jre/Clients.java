@@ -10,7 +10,7 @@ import de.mxro.client.ClientsCommon;
 import de.mxro.client.internal.ClientImpl;
 import de.mxro.metrics.jre.Metrics;
 
-public class Clients extends ClientsCommon {
+public final class Clients extends ClientsCommon {
 
     public static ClientEnv create() {
         final ClientEnv client = new ClientImpl();
@@ -22,7 +22,6 @@ public class Clients extends ClientsCommon {
 
     private static ClientEnv registerFactories(final ClientEnv forClient) {
         forClient.factories().register(Promises.createPromiseFactory());
-
         forClient.factories().register(Properties.createPropertiesFactory());
 
         forClient.factories().register(Metrics.createMetricsFactory());
