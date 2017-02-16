@@ -4,12 +4,8 @@ import de.mxro.client.ClientEnv;
 import de.mxro.client.jre.Clients;
 import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.JUnit;
-import delight.async.properties.PropertyNode;
-import delight.async.properties.PropertyOperation;
 import delight.async.properties.jre.Properties;
-import delight.functional.Success;
 import delight.log.jre.Logs;
-import delight.promise.Promise;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.Matcher;
 import org.junit.Assert;
@@ -22,17 +18,10 @@ public class TestCreateAndStop {
   @Test
   public void test() {
     ClientEnv client = Clients.create();
-    PropertyNode _logs = client.logs();
-    PropertyOperation<String> _string = Logs.string(this, "I was there.");
-    _logs.<String>record(_string);
-    PropertyNode _metrics = client.metrics();
-    PropertyOperation<Long> _increment = Metrics.increment("counter");
-    _metrics.<Long>record(_increment);
-    PropertyNode _state = client.state();
-    PropertyOperation<Object> _set = Properties.set("123", "456");
-    _state.<Object>record(_set);
-    Promise<Success> _stop = client.stop();
-    _stop.get();
+    client.logs().<String>record(Logs.string(this, "I was there."));
+    client.metrics().<Long>record(Metrics.increment("counter"));
+    client.state().<Object>record(Properties.set("123", "456"));
+    client.stop().get();
   }
   
   private static void assertArrayEquals(final Object[] expecteds, final Object[] actuals) {
