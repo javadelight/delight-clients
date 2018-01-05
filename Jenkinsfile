@@ -1,6 +1,8 @@
-tools {
+pipeline {
+    agent any
+    tools {
         maven 'Maven 3.5.2'
-        jdk 'jdk9'
+        jdk 'jdk8'
     }
     stages {
         stage ('Initialize') {
@@ -34,3 +36,4 @@ tools {
             }
         }
     }
+}
