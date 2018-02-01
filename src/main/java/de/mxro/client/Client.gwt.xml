@@ -2,7 +2,7 @@
 <module rename-to='client'>
 	
 	<inherits name='delight.async.properties.Properties' />
-	<inherits name='delight.log.Logs' />
+	
 	<inherits name='de.mxro.metrics.Metrics' />
 	<inherits name='de.mxro.service.Service' />
 
