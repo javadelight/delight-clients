@@ -20,6 +20,8 @@ import delight.functional.Success;
 import delight.promise.Promise;
 import delight.promise.PromiseConfiguration;
 import delight.promise.helper.PromiseFactory;
+import delight.state.State;
+import delight.state.StateRegistry;
 
 public class ClientEnvImpl implements ClientEnv {
 
@@ -63,11 +65,9 @@ public class ClientEnvImpl implements ClientEnv {
     }
 
     @Override
-    public PropertyNode state() {
-        if (this.state == null) {
-            this.state = (PropertyNode) factories().create(new PropertiesConfiguration(), Factories.noDependencies());
-        }
-        return this.state;
+    public StateRegistry state() {
+        
+        return State.get();
     }
 
    

@@ -4,7 +4,6 @@ import de.mxro.client.ClientEnv;
 import de.mxro.client.jre.ClientEnvironments;
 import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.JUnit;
-import delight.async.properties.jre.Properties;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.Matcher;
 import org.junit.Assert;
@@ -18,7 +17,6 @@ public class TestCreateAndStop {
   public void test() {
     ClientEnv client = ClientEnvironments.create();
     client.metrics().<Long>record(Metrics.increment("counter"));
-    client.state().<Object>record(Properties.set("123", "456"));
     client.stop().get();
   }
   

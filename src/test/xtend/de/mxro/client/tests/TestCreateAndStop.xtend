@@ -18,7 +18,7 @@ class TestCreateAndStop {
 
 		client.metrics.record(Metrics.increment("counter"))
 		
-		client.state.record(Properties.set("123", "456"));
+		
 		
 		client.stop.get
 		

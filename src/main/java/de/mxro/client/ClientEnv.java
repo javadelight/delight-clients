@@ -7,7 +7,7 @@ import delight.factories.FactoryCollection;
 import delight.functional.Success;
 import delight.promise.Promise;
 import delight.promise.helper.PromiseFactory;
-
+import delight.state.StateRegistry;
 import de.mxro.service.ServiceRegistry;
 
 public interface ClientEnv extends PromiseFactory {
@@ -18,7 +18,7 @@ public interface ClientEnv extends PromiseFactory {
 
     public PropertyNode metrics();
 
-    public PropertyNode state();
+    public StateRegistry state();
 
 
     public Promise<Success> stop();
