@@ -5,6 +5,10 @@
 	
 	<inherits name='de.mxro.metrics.Metrics' />
 	<inherits name='de.mxro.service.Service' />
+	
+	<inherits name='delight.state.Module' />
+	
+	<inherits name='delight.simplelog.Module' />
 
 	<!-- Specify the paths for translatable code -->
 	<source path=''>
