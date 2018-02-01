@@ -6,6 +6,7 @@ import de.oehme.xtend.junit.JUnit
 import delight.async.properties.jre.Properties
 import org.junit.Test
 
+
 @JUnit
 class TestCreateAndStop {
 	
@@ -15,8 +16,6 @@ class TestCreateAndStop {
 		
 		var client = ClientEnvironments.create
 
-		
-		
 		client.metrics.record(Metrics.increment("counter"))
 		
 		client.state.record(Properties.set("123", "456"));
