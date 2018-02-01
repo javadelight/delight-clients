@@ -1,11 +1,10 @@
 package de.mxro.client.tests;
 
 import de.mxro.client.ClientEnv;
-import de.mxro.client.jre.Clients;
+import de.mxro.client.jre.ClientEnvironments;
 import de.mxro.metrics.jre.Metrics;
 import de.oehme.xtend.junit.JUnit;
 import delight.async.properties.jre.Properties;
-import delight.log.jre.Logs;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.hamcrest.Matcher;
 import org.junit.Assert;
@@ -17,8 +16,7 @@ import org.junit.internal.ArrayComparisonFailure;
 public class TestCreateAndStop {
   @Test
   public void test() {
-    ClientEnv client = Clients.create();
-    client.logs().<String>record(Logs.string(this, "I was there."));
+    ClientEnv client = ClientEnvironments.create();
     client.metrics().<Long>record(Metrics.increment("counter"));
     client.state().<Object>record(Properties.set("123", "456"));
     client.stop().get();

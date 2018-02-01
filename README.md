@@ -22,20 +22,6 @@ A client can be created as follows:
 Client client = Clients.create();
 ```
 
-### Logs
-
-Clients come with capability to store and retrieve multiple logs.
-
-A log can be created and accessed as follows:
-
-```java
-client.logs().record(Logs.string("log1", "Just a Message!"));
-
-String allEntries = client.logs().retrieve("log1", String.class).get();
-```
-
-More details can be found in the documentation of the [Async Log](https://github.com/mxro/async-log) project.
-
 ### Metrics
 
 Metrics such as counters and throughput are natively supported by this API.

@@ -1,7 +1,6 @@
 package de.mxro.client.tests
 
-import delight.log.jre.Logs
-import de.mxro.client.jre.Clients
+import de.mxro.client.jre.ClientEnvironments
 import de.mxro.metrics.jre.Metrics
 import de.oehme.xtend.junit.JUnit
 import delight.async.properties.jre.Properties
@@ -14,9 +13,9 @@ class TestCreateAndStop {
 	@Test
 	def void test() {
 		
-		var client = Clients.create
+		var client = ClientEnvironments.create
 
-		client.logs.record(Logs.string(this, "I was there."))
+		
 		
 		client.metrics.record(Metrics.increment("counter"))
 		

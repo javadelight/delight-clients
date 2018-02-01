@@ -1,19 +1,17 @@
 package de.mxro.client.jre;
 
-import delight.async.properties.jre.Properties;
-import delight.concurrency.jre.ConcurrencyJre;
-import delight.log.jre.Logs;
-import delight.promise.jre.Promises;
-
 import de.mxro.client.ClientEnv;
 import de.mxro.client.ClientsCommon;
-import de.mxro.client.internal.ClientImpl;
+import de.mxro.client.internal.ClientEnvImpl;
 import de.mxro.metrics.jre.Metrics;
+import delight.async.properties.jre.Properties;
+import delight.concurrency.jre.ConcurrencyJre;
+import delight.promise.jre.Promises;
 
-public final class Clients extends ClientsCommon {
+public final class ClientEnvironments extends ClientsCommon {
 
     public static ClientEnv create() {
-        final ClientEnv client = new ClientImpl();
+        final ClientEnv client = new ClientEnvImpl();
 
         registerFactories(client);
 
@@ -26,7 +24,6 @@ public final class Clients extends ClientsCommon {
 
         forClient.factories().register(Metrics.createMetricsFactory());
 
-        forClient.factories().register(Logs.createLogsFactory());
 
         forClient.factories().register(ConcurrencyJre.createFactory());
 

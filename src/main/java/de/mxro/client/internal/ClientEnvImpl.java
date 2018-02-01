@@ -1,5 +1,12 @@
 package de.mxro.client.internal;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import de.mxro.client.ClientEnv;
+import de.mxro.metrics.MetricsConfiguration;
+import de.mxro.service.ServiceRegistry;
+import de.mxro.service.Services;
 import delight.async.AsyncCommon;
 import delight.async.Operation;
 import delight.async.callbacks.ValueCallback;
@@ -10,20 +17,11 @@ import delight.concurrency.configuration.ConcurrencyConfigurations;
 import delight.factories.Factories;
 import delight.factories.FactoryCollection;
 import delight.functional.Success;
-import delight.log.LogsConfiguration;
 import delight.promise.Promise;
 import delight.promise.PromiseConfiguration;
 import delight.promise.helper.PromiseFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import de.mxro.client.ClientEnv;
-import de.mxro.metrics.MetricsConfiguration;
-import de.mxro.service.ServiceRegistry;
-import de.mxro.service.Services;
-
-public class ClientImpl implements ClientEnv {
+public class ClientEnvImpl implements ClientEnv {
 
     private FactoryCollection factories;
     private ServiceRegistry services;
@@ -72,13 +70,7 @@ public class ClientImpl implements ClientEnv {
         return this.state;
     }
 
-    @Override
-    public PropertyNode logs() {
-        if (this.logs == null) {
-            this.logs = (PropertyNode) factories().create(new LogsConfiguration(), Factories.noDependencies());
-        }
-        return this.logs;
-    }
+   
 
     @Override
     public Promise<Success> stop() {

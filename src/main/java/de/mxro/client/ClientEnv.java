@@ -20,7 +20,6 @@ public interface ClientEnv extends PromiseFactory {
 
     public PropertyNode state();
 
-    public PropertyNode logs();
 
     public Promise<Success> stop();
 

@@ -1,11 +1,9 @@
 package de.mxro.client;
 
-import delight.async.properties.PropertiesCommon;
-import delight.log.LogsCommon;
-import delight.promise.PromisesCommon;
-
-import de.mxro.client.internal.ClientImpl;
+import de.mxro.client.internal.ClientEnvImpl;
 import de.mxro.metrics.MetricsCommon;
+import delight.async.properties.PropertiesCommon;
+import delight.promise.PromisesCommon;
 
 /**
  * Entry-point for creating cross-platform clients.
@@ -16,7 +14,7 @@ import de.mxro.metrics.MetricsCommon;
 public class ClientsCommon {
 
     public static ClientEnv createPortable() {
-        final ClientEnv client = new ClientImpl();
+        final ClientEnv client = new ClientEnvImpl();
 
         client.factories().register(PromisesCommon.createUnsafePromiseFactory());
 
@@ -24,7 +22,6 @@ public class ClientsCommon {
 
         client.factories().register(MetricsCommon.createUnsafeFactory());
 
-        client.factories().register(LogsCommon.createUnsafeLogsFactory());
 
         return client;
 
